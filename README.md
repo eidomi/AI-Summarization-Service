@@ -2,6 +2,11 @@
 
 Chrome extension that extracts web page content and sends it to a backend service that summarizes it using Claude.
 
+## Tech Stack
+
+**Server:** TypeScript, Express, Zod, Anthropic SDK, Vitest
+**Extension:** TypeScript, Chrome MV3 content script, esbuild (IIFE bundle)
+
 ## Architecture
 
 ```
@@ -18,6 +23,11 @@ Chrome Extension (content script)         Express Server
 ```
 
 **Model choice:** Claude Haiku 4.5 — small, fast, cheap model optimized for summarization workloads. Trivial to swap via a single constant.
+
+## Prerequisites
+
+- Node.js >= 18
+- An [Anthropic API key](https://console.anthropic.com/)
 
 ## Setup
 
@@ -55,6 +65,14 @@ Response: { summary: string, wordCount: number, strategy: string, model: string,
 
 GET /api/health
 Response: { status: "ok", timestamp: string }
+```
+
+Quick test without the extension:
+
+```bash
+curl -X POST http://localhost:3000/api/summarize \
+  -H "Content-Type: application/json" \
+  -d '{"content":"TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. It adds optional static typing and class-based object-oriented programming to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.","url":"https://example.com","title":"Test"}'
 ```
 
 ## Testing
