@@ -7,7 +7,7 @@ function extractContent(): string {
   const selection = window.getSelection()?.toString().trim() ?? '';
   if (selection.length > 50) return selection;
 
-  const semantic = document.querySelector('article, main, [role="main"]');
+  const semantic = document.querySelector<HTMLElement>('article, main, [role="main"]');
   if (semantic) return semantic.innerText.trim();
 
   return document.body.innerText.trim();
