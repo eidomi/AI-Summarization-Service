@@ -1,0 +1,12 @@
+{
+  "name": "ai-summarizer-extension",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/content.ts --bundle --outfile=dist/content.js --format=iife --target=chrome110"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2",
+    "typescript": "^5.7.3"
+  }
+}
