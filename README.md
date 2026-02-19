@@ -86,6 +86,10 @@ npm test
 - **Summarizer service**: happy path (returns summary + metadata), content truncation at 15k chars
 - **Route handler**: 200 on valid request, 400 on invalid input
 
+## Configuration
+
+The extension connects to `http://localhost:3000` by default. If you run the server on a different port (via the `PORT` variable in `server/.env`), update `API_BASE` in `extension/src/content.ts` to match, then rebuild the extension.
+
 ## Key Design Decisions
 
 1. **Content extraction priority**: selected text (>50 chars) → `<article>/<main>/[role="main"]` → `document.body.innerText`
