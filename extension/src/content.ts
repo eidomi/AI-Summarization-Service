@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3000/api/summarize';
+/** Base URL of the summarization server — change if running on a different port */
+const API_BASE = 'http://localhost:3000';
+const API_URL = `${API_BASE}/api/summarize`;
 const ROOT_ID = 'ai-summarizer-root';
 
 type Strategy = 'concise' | 'bullets';
